@@ -1,0 +1,5 @@
+FROM alpine:latest
+RUN apk update && apk add --no-cache curl unzip xray
+COPY config.json /etc/xray/config.json
+EXPOSE 8080
+CMD ["xray", "-config", "/etc/xray/config.json"]
